@@ -1,0 +1,43 @@
+.uk-navbar-container:not(.uk-navbar-transparent) {
+    border-bottom: 1px solid #ececec;
+}
+
+.uk-button-create, .uk-button-create:hover  {
+    background: white;
+    position: relative;
+    border-top: 2px solid black;
+    bottom: 0;
+    transition: 0.5s;
+}
+.uk-button-create:hover  {
+    background: #ececec!important;
+}
+
+.uk-logo {
+    color: #000;
+}
+
+.ico-margin {
+    margin-right: 5px;
+}
+
+.uk-input, .uk-select, .uk-textarea {
+    background: #f5f5f5;
+    color: #000;
+    border: 1px solid #e5e5e5;
+}
+
+.uk-input:focus, .uk-select:focus, .uk-textarea:focus {
+    background-color: #fff;
+    color: #000;
+    border-color: #333333;
+}
+
+.uk-checkbox:checked, .uk-checkbox:indeterminate, .uk-radio:checked {
+    background-color: #000000;
+}
+
+.uk-tab>.uk-active>a {
+    color: #000;
+    border-color: #000000;
+}

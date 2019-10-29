@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="UTF-8">
+        <title>Hello World!</title>
+
+        <!-- UIkit CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css" />
+
+        <!-- UIkit JS -->
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit.min.js"></script>
+
+        <!-- App CSS -->
+        <link rel="stylesheet" href="../css/app.css" />
+
+        <!-- Fontawesome Icons -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/solid.css" integrity="sha384-doPVn+s3XZuxfJLS7K1E+sUl25XMZtTVb3O46RyV3JDU2ehfc0Aks4z0ufFpA2WC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/brands.css" integrity="sha384-tft2+pObMD7rYFMZlLUziw/8QrQeKHU4GYYvA5jVaggC74ZrYdTASheA2vckPcX5" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/fontawesome.css" integrity="sha384-+pqJl+lfXqeZZHwVRNTbv2+eicpo+1TR/AEzHYYDKfAits/WRK21xLOwzOxZzJEZ" crossorigin="anonymous">
+
+    </head>
+    <body>
+
+        <nav class="uk-navbar-container" uk-navbar>
+
+            <div class="uk-navbar-left">
+                <ul class="uk-navbar-nav">
+                    <li style="margin-left: 10px;font-size: 20px;" class="uk-text-bold uk-text-secondary uk-text-uppercase">
+                        <i class="fab fa-discord"></i> Discord bot generator
+                    </li>
+                </ul>
+            </div>
+
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a class="uk-text-warning" href="https://www.patreon.com/e1on">
+                            <i class="fab fa-patreon ico-margin"></i> Patreon
+                        </a>
+                    </li>
+                    <li>
+                        <a class="uk-text-success" href="https://github.com/LoliE1ON/discord-bot-generator">
+                            <i class="fab fa-github ico-margin"></i> GitHub
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+
+        <div id="messages-container" class="uk-card uk-card-default uk-card-body">
+
+            <form>
+
+                <ul uk-tab>
+                    <li><a href="#"><i class="fas fa-comment-dots"></i> Messages</a></li>
+                    <li><a href="#"><i class="fas fa-code-branch"></i> Integration</a></li>
+                    <li><a href="#"><i class="fas fa-cogs"></i> Settings</a></li>
+                </ul>
+
+                <ul class="uk-switcher uk-margin">
+
+                    <li>
+                        <fieldset class="uk-fieldset">
+
+                            <h3 class="uk-heading-bullet">Messages list</h3>
+
+
+                            <div id="messages">
+                                <div id="message" class="uk-child-width-1-2 uk-text-center uk-margin" uk-grid>
+                                    <div>
+                                        <div class="uk-margin">
+                                            <div class="uk-text-uppercase uk-text-small uk-text-secondary uk-text-left">
+                                                <i class="fas fa-angle-double-right"></i> Request
+                                            </div>
+                                            <input class="uk-input" type="text" value="!bot" placeholder="Request">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="uk-margin">
+                                            <div class="uk-text-uppercase uk-text-small uk-text-secondary uk-text-left">
+                                                Response <i class="fas fa-angle-double-right"></i>
+                                            </div>
+                                            <input class="uk-input" type="text" value="Hi, how are you?" placeholder="Responce">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div uk-grid class="uk-child-width-1-2">
+
+                                <div class="uk-float-left">
+                                    <div class="uk-margin">
+                                        <button class="uk-button uk-button-default uk-button-secondary" id="addNewMessage">
+                                            <i class="fas fa-pencil-alt"></i>
+                                            Add message
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+
+                        </fieldset>
+                    </li>
+
+                    <li>
+
+                        <h3 class="uk-heading-bullet">Integration</h3>
+
+                        <dl class="uk-description-list">
+                            <dt>
+                                <b>Heroku</b>
+                                <span class="uk-text-meta uk-text-lowercase">
+                                    is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
+                                </span>
+                            </dt>
+                            <dd>
+                                <label>
+                                    <input class="uk-checkbox" type="checkbox" checked> Generate a procfile
+                                </label>
+                            </dd>
+                        </dl>
+
+                    </li>
+
+                    <li>
+
+                        <fieldset class="uk-fieldset">
+
+                            <h3 class="uk-heading-bullet">Bot settings</h3>
+
+                            <div class="uk-margin">
+
+                                <div class="uk-text-uppercase uk-text-secondary">
+                                    Bot token
+                                </div>
+
+                                <div class="uk-grid-collapse" uk-grid>
+                                    <div style="width: 30px;padding-top: 5px;" class="uk-text-secondary">
+                                        <i class="fas fa-key"></i>
+                                    </div>
+                                    <div class="uk-width-expand">
+                                        <input class="uk-input" type="text" placeholder="Token">
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+                        </fieldset>
+
+                    </li>
+                </ul>
+
+            </form>
+
+
+        </div>
+
+        <button class="uk-button uk-button-create uk-width-1-1 uk-text-secondary uk-text-bold">
+            <i class="fas fa-fire"></i>
+            Generate BOT
+        </button>
+
+
+
+        <script>
+
+            require('../renderer.js');
+
+            window.onload = () => {
+
+                let buttonAddNewMessage = document.getElementById('addNewMessage');
+                let messagesContainer = document.getElementById('messages');
+
+                const CreateBotTool = new (require('../components/CreateBotTool'))(messagesContainer);
+
+                // Add new message
+                buttonAddNewMessage.addEventListener('click', (event) => {
+
+                    event.preventDefault();
+                    CreateBotTool.addNewMessage();
+
+                });
+
+            }
+
+        </script>
+
+    </body>
+</html>
