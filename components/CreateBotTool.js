@@ -18,12 +18,12 @@ module.exports = class CreateBotTool {
         <div id="message" class="uk-child-width-1-2 uk-text-center uk-margin" uk-grid>
             <div>
                 <div class="uk-margin">
-                    <input class="uk-input" type="text" placeholder="Request">
+                    <input class="uk-input" type="text" id="request" placeholder="Request">
                 </div>
             </div>
             <div>
                 <div class="uk-margin">
-                    <input class="uk-input" type="text" placeholder="Response">
+                    <input class="uk-input" type="text" id="response" placeholder="Response">
                 </div>
             </div>
         </div>`;

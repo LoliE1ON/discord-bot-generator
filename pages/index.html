@@ -53,13 +53,13 @@
 
             <form>
 
-                <ul uk-tab>
+                <ul uk-switcher="connect: #form-validate;" uk-tab>
                     <li><a href="#"><i class="fas fa-comment-dots"></i> Messages</a></li>
                     <li><a href="#"><i class="fas fa-code-branch"></i> Integration</a></li>
                     <li><a href="#"><i class="fas fa-cogs"></i> Settings</a></li>
                 </ul>
 
-                <ul class="uk-switcher uk-margin">
+                <ul class="uk-switcher uk-margin" id="form-validate">
 
                     <li>
                         <fieldset class="uk-fieldset">
@@ -74,7 +74,7 @@
                                             <div class="uk-text-uppercase uk-text-small uk-text-secondary uk-text-left">
                                                 <i class="fas fa-angle-double-right"></i> Request
                                             </div>
-                                            <input class="uk-input" type="text" value="!bot" placeholder="Request">
+                                            <input class="uk-input" type="text" value="!bot" id="request" placeholder="Request">
                                         </div>
                                     </div>
                                     <div>
@@ -82,7 +82,7 @@
                                             <div class="uk-text-uppercase uk-text-small uk-text-secondary uk-text-left">
                                                 Response <i class="fas fa-angle-double-right"></i>
                                             </div>
-                                            <input class="uk-input" type="text" value="Hi, how are you?" placeholder="Responce">
+                                            <input class="uk-input" type="text" id="response" value="Hi, how are you?" placeholder="Responce">
                                         </div>
                                     </div>
                                 </div>
@@ -120,7 +120,7 @@
                             </dt>
                             <dd>
                                 <label>
-                                    <input class="uk-checkbox" type="checkbox" checked> Generate a procfile
+                                    <input class="uk-checkbox" type="checkbox" id="generateProcFile" checked> Generate a procfile
                                 </label>
                             </dd>
                         </dl>
@@ -144,7 +144,7 @@
                                         <i class="fas fa-key"></i>
                                     </div>
                                     <div class="uk-width-expand">
-                                        <input class="uk-input" type="text" placeholder="Token">
+                                        <input class="uk-input" type="text" id="botTokenInput" placeholder="Token">
                                     </div>
                                 </div>
 
@@ -162,7 +162,7 @@
 
         </div>
 
-        <button class="uk-button uk-button-create uk-width-1-1 uk-text-secondary uk-text-bold">
+        <button class="uk-button uk-button-create uk-width-1-1 uk-text-secondary uk-text-bold" id="buttonGenerateBot">
             <i class="fas fa-fire"></i>
             Generate BOT
         </button>
@@ -176,15 +176,32 @@
             window.onload = () => {
 
                 let buttonAddNewMessage = document.getElementById('addNewMessage');
+                let buttonGenerateBot = document.getElementById('buttonGenerateBot');
+
                 let messagesContainer = document.getElementById('messages');
 
                 const CreateBotTool = new (require('../components/CreateBotTool'))(messagesContainer);
+                const ValidateForm = new (require('../components/ValidateForm'))();
+                const GenerateBot = new (require('../components/GenerateBot'))();
 
                 // Add new message
                 buttonAddNewMessage.addEventListener('click', (event) => {
 
                     event.preventDefault();
                     CreateBotTool.addNewMessage();
+
+                });
+
+                // Generate bot
+                buttonGenerateBot.addEventListener('click', (event) => {
+
+                    event.preventDefault();
+                    let validateFormStatus = ValidateForm.validate();
+
+                    if (!validateFormStatus) {
+                        GenerateBot.generate();
+                    }
+                    console.log(validateFormStatus)
 
                 });
 

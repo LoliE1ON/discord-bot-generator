@@ -41,3 +41,14 @@
     color: #000;
     border-color: #000000;
 }
+
+.uk-notification-message-danger {
+    color: #f0506e;
+    background: #fff0f0;
+    border: 1px solid #ffd6d6;
+}
+
+.uk-form-danger, .uk-form-danger:focus {
+    color: #f0506e!important;
+    border-color: #f0506e!important;
+}
